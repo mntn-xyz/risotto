@@ -93,7 +93,7 @@ ol ol {
 }
 
 ul li::marker {
-    content: '∗ ';
+    content: '∗\00A0';
     color: var(--bright-bg);
 }
 
@@ -124,8 +124,8 @@ blockquote::before {
 pre,
 code, 
 kbd {
-    overflow-x: scroll;
-    background: var(--dark-bg);
+    overflow-x: auto;
+    background: var(--dark-bg) !important;
     font-family: var(--font-monospace);
     color: var(--bright-bg);
 }
@@ -153,3 +153,13 @@ hr:after {
     color: var(--bright-bg);
 }
 
+/* Prevent super/sub from affecting line height */
+sup, sub {
+    vertical-align: baseline;
+    position: relative;
+    top: -0.25rem;
+    font-size: unset;
+}
+sub { 
+    top: 0.25rem; 
+}
